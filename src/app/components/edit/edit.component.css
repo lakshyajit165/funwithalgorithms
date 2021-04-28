@@ -1,0 +1,29 @@
+.logicpreview {
+    height: 180px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+    word-wrap: break-word;
+    padding: 5px 5px 5px 10px
+}
+
+.pcodepreview {
+    height: 350px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1px solid lightgrey;
+    border-radius: 3px; 
+    /* word-wrap: break-word; */
+    padding: 5px 5px 5px 10px
+}
+
+.loader-div, .loaderr-div {
+    min-height: 768px;
+}
+
+#taglist {
+    display: flex; 
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}

@@ -1,0 +1,16 @@
+.nav-item {
+ cursor: pointer;   
+}
+
+.logo-title {
+    font-family: 'Covered By Your Grace', cursive;
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.footer-view-link {
+    color: blue;
+    cursor: pointer;
+    text-decoration: none;
+}

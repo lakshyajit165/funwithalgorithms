@@ -1,0 +1,73 @@
+/* .list-group {
+    max-height: 400px;
+    overflow: hidden;
+    overflow-y: scroll;
+} */
+
+#category {
+    width: 300px;
+}
+.algo-list {
+    
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+
+.algo-desc {
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.algo-title, .edit-del-btns {
+    cursor: pointer;
+} 
+
+.algo-tag {
+    padding: 2px 4px 2px 4px;
+    border-radius: 3px;
+    background-color: #EDEDED;
+    border: 1px solid #BFBFBF;
+}
+
+.algo-diff {
+    padding: 3px 5px 3px 5px;
+    border-radius: 3px;
+}
+
+.green {
+    background-color:#E5FFD1;
+    border: 1px solid #478913;
+    
+}
+
+.red {
+    background-color: #FFCEC2;
+    border: 1px solid #C87966;
+}
+
+.yellow {
+    background-color: #F6FE96;
+    border: 1px solid #BEC43B;
+}
+
+.edit-del-btns {
+    float: right;
+    font-size: 18px;
+}
+
+.clear-filter {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*
+
+ -webkit-line-clamp: 3;
+ overflow: hidden;
+text-overflow: ellipsis;
+*/

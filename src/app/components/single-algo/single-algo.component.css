@@ -1,0 +1,28 @@
+.loading-div, .error-div {
+    min-height: 750px;
+}
+
+
+
+pre {
+    border: none;
+    font-size: 17px;
+    padding: 10px 10px 10px 25px;
+}
+
+.algo-tag {
+    padding: 2px 4px 2px 4px;
+    border-radius: 3px;
+    background-color: #EDEDED;
+    border: 1px solid #BFBFBF;
+}
+
+.pseudocode {
+    max-height: 650px; 
+    overflow-y: scroll;
+}
+
+.pseudocode-section {
+    margin-top: 11%;
+}
+

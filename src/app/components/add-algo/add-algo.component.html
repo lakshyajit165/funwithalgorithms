@@ -1,0 +1,174 @@
+<section class="container mt-5 mb-5">
+    
+    <form class="col-lg-12">
+        <div class="section-title">
+            <h2 class="mb-4 text-center">Add Problem</h2>
+        </div>
+       
+            
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="title" (ngModelChange)="titleChange($event)" aria-describedby="emailHelp">
+            <small *ngIf="titlechangestatus && !validateTitle()" class="text-danger">Title is required!</small>
+        </div>
+       
+
+      
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" [(ngModel)]="description" (ngModelChange)="descriptionChange($event)" rows="3"></textarea>
+            <small *ngIf="descriptionchangestatus && !validateDescription()" class="text-danger">
+                Description is required!
+            </small>
+        </div>
+            
+     
+       
+            <!-- <div class="form-group">
+                <label for="fileinput">Image Upload</label>
+                <input type="file" class="form-control-file" id="fileinput">
+                
+            </div> -->
+        <div class="form-row align-items-center">
+            <div class="col-sm-6">
+                <label for="fileinput">Image Upload</label>
+                <input type="file" class="form-control-file" id="fileinput" (change)="onChangeImage($event)">
+                <div class="form-row" style="display: inline-flex;">
+                    <button type="submit" [disabled]="imguploadsuccess" class="btn btn-primary mt-2 ml-1" (click)="uploadImage()">Upload</button>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div *ngIf="filenameerror" class="alert alert-danger text-center" role="alert">
+                    Image name <b>cannot</b> contain white spaces!
+                </div>
+                
+                <div *ngIf="imguploaderror; else elseBlock1" class="alert alert-warning text-center" role="alert">
+                    Error uploading image! Please try again
+                </div>
+                <ng-template #elseBlock1>
+                    <div *ngIf="imguploadsuccess" class="alert alert-success text-center" role="alert">
+                        Image upload successful!
+                    </div>
+                </ng-template>
+                
+            </div>
+            
+            </div>
+        
+       
+        <br/>
+
+        <!-- textarea scrollable byb default -->
+        
+        <div class="row">
+            <div class="col-lg-6">
+            
+                <div class="form-group">
+                    <label for="logic">Logic</label><small> (Markdown enabled)</small>
+                    <textarea class="form-control" id="logic" [(ngModel)]="logic" name="logic" (ngModelChange)="logicChange($event)" rows="7"></textarea>
+                    <small *ngIf="logicchangestatus && !validateLogic()" class="text-danger">
+                        Logic is required!
+                    </small>
+                </div>
+            </div>
+            <div class="col-lg-6">
+            
+                
+                
+                <div class="form-group">
+                    <label for="logicpreview">Logic Preview</label>
+                    <div [innerHTML]="logic | markdown" class="logicpreview"></div>
+                </div>
+                
+            </div>
+        </div>
+    
+
+       
+        <div class="row">
+            <div class="col-lg-6">
+            
+                <div class="form-group">
+                    <label for="pcode">Pseudocode</label>
+                    <textarea class="form-control" id="pseudocode" [(ngModel)]="pseudocode" name="pseudocode" (ngModelChange)="pseudocodeChange($event)" rows="14"></textarea>
+                    <small *ngIf="pseudocodechangestatus && !validatePseudoCode()" class="text-danger">
+                        Pseudocode is required!
+                    </small>
+                </div>
+            </div>
+            <!-- <div class="col-lg-6">
+            
+                <div class="form-group">
+                    <label for="pcodepreview">Pseudocode Preview</label><small> (Syntax highlighting applied later)</small>
+                     <div [innerHTML]="pseudocode | markdown" class="pcodepreview"></div> 
+                    <pre class="prettyprint lang-cpp pcodepreview">
+                        {{ pseudocode }}
+                    </pre>
+                </div>
+            </div> -->
+        </div>
+
+
+        
+      
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="tags">Tags</label>
+                <small> (Could select multiple)</small>
+                <div id="taglist">
+                    
+                    <div class="form-check" *ngFor="let singletag of tagslist">
+                        <div class="ml-1 mr-1">
+                            <input type="checkbox" class="form-check-input" name="taglist" (change)="tagsListChange($event, singletag)">
+                            <label class="form-check-label"><b>{{ singletag | titlecase}}</b></label>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!-- <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <small> (Comma separated values)</small>
+                    <input type="text" class="form-control" [(ngModel)]="tags" id="tags" (ngModelChange)="tagsChange($event)" name="tags">
+                   
+                </div> -->
+            </div>
+
+            <div class="col-lg-6">
+                
+                <div class="form-group">
+                    <label for="difficulty">Difficulty</label>
+                    <select class="form-control" [(ngModel)]="difficulty" id="difficulty" (ngModelChange)="difficultyChange($event)" name="difficulty">
+                        <option>Easy</option>
+                        <option>Medium</option>
+                        <option>Hard</option>
+                    </select>
+                    <small *ngIf="difficultychangestatus && !validateDifficulty()" class="text-danger">
+                        Difficulty level is required!
+                    </small>
+                </div>
+            </div>
+        </div>
+        
+
+        
+        <div class="row mt-4">
+            <div class="col-lg-6 mb-2">
+                <button *ngIf="!addproblemstatus; else loadingBlock" type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
+                <ng-template #loadingBlock>
+                    <button class="btn btn-primary">
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Loading..
+                    </button>
+                </ng-template>
+            </div>
+            <div class="col-lg-6">
+                <div *ngIf="addproblemerror" class="alert alert-warning">
+                    An error occurred! Please try again.
+                </div>
+            </div>
+            
+            
+        </div>
+    
+      </form>
+</section>
