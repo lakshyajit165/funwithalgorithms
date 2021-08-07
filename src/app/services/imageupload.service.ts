@@ -13,7 +13,7 @@ export class ImageuploadService {
     private http: HttpClient
   ) { }
   
-  api: string = 'https://api.funwithalgorithms.tech/';
+  api: string = 'https://fwa-server-2.herokuapp.com/';
 
   fileUpload(imageForm: FormData) {
     return this.http.post(this.api + 'api/v1/upload', 
