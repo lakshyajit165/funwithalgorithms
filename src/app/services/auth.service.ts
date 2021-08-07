@@ -12,7 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AuthService {
 
-  serviceRoute = 'https://api.funwithalgorithms.tech/';
+  serviceRoute = 'https://fwa-server-2.herokuapp.com/';
   
   constructor(
     private http: HttpClient,

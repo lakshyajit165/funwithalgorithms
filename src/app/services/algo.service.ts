@@ -14,7 +14,7 @@ export class AlgoService {
     private http: HttpClient,
     private cookieService: CookieService
   ) { }
-  api: string = 'https://api.funwithalgorithms.tech/';
+  api: string = 'https://fwa-server-2.herokuapp.com/';
 
   addAlgo(algo: IProblem): Observable<object> {
 
